@@ -39,7 +39,7 @@ if (fontFamilies.length >= 3) {
 const fontFamilyConfig = modifiedFontFamilies
   .map(([key, value]) => `'${key}': ['${value}']`)
   .join(',\n');
-
+console.log(wptheme.dimensions.aspectRatios)
 const tailwindConfig = `module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
@@ -59,7 +59,7 @@ const tailwindConfig = `module.exports = {
     container: {
       center: true,
       screens: {
-        '2xl': '${wptheme.layout.contentSize}',
+        '2xl': '1280px',
       },
     },
     extend: {
@@ -127,7 +127,7 @@ const themeVariables = `
 @layer base {
   :root {
     ${colorVars}
-    --container-width: ${wptheme.layout.contentSize};
+    --container-width: '1280px';
   }
 }`;
 

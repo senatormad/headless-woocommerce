@@ -1,6 +1,11 @@
 import Color from 'color';
 
 export const hexToHslValue = (hexColor: string, separator = ' '): string => {
+  // Check if the input is a CSS variable
+  if (hexColor.startsWith('var(')) {
+    return `255${separator}100%${separator}100%`;
+  }
+
   const [h, s, l] = hexToHslArray(hexColor);
 
   return `${h}${separator}${s}%${separator}${l}%`;

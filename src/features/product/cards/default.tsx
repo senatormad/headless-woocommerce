@@ -132,7 +132,8 @@ export const DefaultProductCard = (props: Props) => {
   }
 
   const renderProductCardsFromTemplate = () => {
-    const productCardTemplate = productCards[0];
+    const productCardTemplate = productCards[0] as { innerBlocks?: { blockName: string; attrs?: any }[] };
+    if (!productCardTemplate?.innerBlocks) return null;
     return productCardTemplate.innerBlocks.map((block) => {
       switch (block.blockName) {
         case 'woocommerce/product-image': {
